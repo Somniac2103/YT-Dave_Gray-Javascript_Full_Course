@@ -1,118 +1,45 @@
-// LESSON 14 : Arrays
+// LESSON 16: Refactored GAME
 
-let myArray = [];
+// Rock, Paper, Scissors: Refactored with While Loop and an Array
+let playGame = confirm("Shall we play rock, paper, or scissors?");
+if (playGame) {
+  //play
+  while (playGame) {
+    const playerChoice = prompt("Please enter rock, paper, or scissors.");
+    if (playerChoice || playerChoice === "") {
+      const playerOne = playerChoice.trim().toLowerCase();
+      if (
+        playerOne === "rock" ||
+        playerOne === "paper" ||
+        playerOne === "scissors"
+      ) {
+        const computerChoice = Math.floor(Math.random() * 3);
+        const rpsArray = ["rock", "paper", "scissors"];
+        const computer = rpsArray[computerChoice];
 
-myArray[0] = "Barry";
-myArray[1] = 1001;
-myArray[2] = false;
-
-/* 
-
-//refer in array
-console.log(myArray);
-
-console.log(myArray.length);
-
-console.log(myArray[myArray.length - 1]);
-
-console.log(myArray[1]); 
-
-//add to the end of array
-myArray.push("school");
-console.log(myArray);
-
-//remove from the end of array
-myArray.pop();
-
-console.log(myArray);
-
-//save last entry of arrange before removing
-
-const lastItem = myArray.pop();
-
-console.log(lastItem);
-
-//add to the start of array
-myArray.unshift(42);
-
-console.log(myArray);
-
-//remove from the start of array
-myArray.shift();
-
-console.log(myArray);
-
-//remove from the middle of array
-//dont use this one, simply remove data but keeps the location empty
-//delete myArray[1];
-//console.log(myArray);
-
-myArray.splice(1,1);
-console.log(myArray); 
-
-//replace values in the middle of array
-myArray.splice(1,1,423);
-
-//add values in the middle of array
-myArray.splice(1, 0, 500);
-console.log(myArray);
-
-*/
-
-//slice makes copy and returns copy leaving original intach
-
-myArray = ["A","B","C","D","E","F","G"];
-const myArrayA = ["A","B","C"];
-const myArrayB = ["D","E","F","G"];
-
-/* //const newArray = myArray.slice(2);
-console.log(myArray.slice(2, 5));
-
-//console.log (newArray);
-console.log (myArray); */
-
-/* //reverse method
-myArray.reverse();
-
-console.log(myArray); */
-
-/* //join method and Split method
-
-// puts all values in one value seperated by commas
-const newString = myArray.join();
-console.log(newString);
-
-//splits all values in to seperate values using the symbol in brackets
-const newArray = newString.split(",");
-console.log(newArray); */
-
-//joins two arrays into 1 array
-/* 
-//const newArray2 = myArrayA.concat(myArrayB);
-const newArray2 = [...myArrayA, ...myArrayB];
-console.log(newArray2); */
-
-const equipShelfA = ["baseball","baseball","baseball"];
-const equipShelfB = ["basketball","gold balls"," tennisball"];
-
-const clothesShelfA = ["tank tops","t-shirts","jerseys"];
-const clothesShelfB = ["sweat tops","sweat pants","hoodies"];
-
-//single dimension
-console.log(equipShelfA[1]);
-
-//2 dimension
-const equiDept = [equipShelfA, equipShelfB];
-const clothesDept = [clothesShelfA, clothesShelfB];
-
-console.log(equiDept[0][1]);
-console.log(clothesDept[1][0]);
-
-//3 dimension
-
-const sportStore = [equiDept, clothesDept];
-
-console.log(sportStore);
-console.log(sportStore[0]);
-console.log(sportStore[0][1]);
-console.log(sportStore[0][1][2]);
+        const result =
+          playerOne === computer
+            ? "Tie game!"
+            : playerOne === "rock" && computer === "paper"
+            ? `playerOne: ${playerOne}\nComputer: ${computer}\nComputer wins!`
+            : playerOne === "paper" && computer === "scissors"
+            ? `playerOne: ${playerOne}\nComputer: ${computer}\nComputer wins!`
+            : playerOne === "scissors" && computer === "rock"
+            ? `playerOne: ${playerOne}\nComputer: ${computer}\nComputer wins!`
+            : `playerOne: ${playerOne}\nComputer: ${computer}\nplayerOne wins!`;
+        alert(result);
+        playGame = confirm("Play Again?");
+        if (!playGame) alert("Ok, thanks for playing.");
+        continue;
+      } else {
+        alert("You didn't enter rock, paper, or scissors.");
+        continue;
+      }
+    } else {
+      alert("I guess you changed your mind. Maybe next time.");
+      break;
+    }
+  }
+} else {
+  alert("Ok, maybe next time.");
+}
