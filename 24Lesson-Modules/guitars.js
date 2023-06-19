@@ -3,7 +3,7 @@ export default function playGuitar() {
 };
 
 export const shredding = () => {
-  return " Shredding some licks!";
+  return "Shredding some licks!";
 };
 
 export const plucking = () => {
