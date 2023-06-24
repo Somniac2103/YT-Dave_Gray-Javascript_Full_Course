@@ -64,7 +64,8 @@ fetch("https://jsonplaceholder.typicode.com/users")
 
 //Async / Await
 
-const myUser={
+
+/* const myUser={
   userList:[]
 }
 
@@ -82,4 +83,55 @@ const anotherFunc = async () => {
   console.log(data);
 }
 
-anotherFunc();
+anotherFunc(); */
+
+//2nd parameter of Fetch is a object
+
+/* const getDadJoke = async () => {
+
+  const response = await fetch("https://icanhazdadjoke.com/", {
+    method: "GET",
+    headers: {
+      Accept: "application/json"
+    }
+  });
+  const jsonJokeData = await response.json();
+
+  console.log(jsonJokeData);  
+}
+
+getDadJoke(); */
+
+//Using post 
+/* const jokeObject ={
+  id: 'pWLRK6pWDtc', 
+  joke: "What do you call a boomerang that won't come back? A stick."
+}
+
+const postData= async (jokeObj) => {
+
+  const response = await fetch("https://httpbin.org/post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(jokeObj)
+  });
+  const jsonResponse = await response.json();
+
+  console.log(jsonResponse);  
+};
+
+postData(jokeObject);
+ */
+
+// 
+const requestJoke= async (firstName, lastName) => {
+
+  const response = await fetch(`https://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}`);
+  const jsonResponse = await response.json();
+
+  console.log(jsonResponse.value);  
+};
+
+requestJoke("Clint", "Eastwood");
